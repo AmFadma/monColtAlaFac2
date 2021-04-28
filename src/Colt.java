@@ -8,5 +8,10 @@ public class Colt {
         int NB_WAGONS = 4;
         int NB_PERS = 1;
         Train train = new Train(NB_WAGONS);
+        //plateforme avec 1 train n joueurs et fixed nb pnj
+        Personnages personnages = new Personnages("Wyatt");
+        personnages.update();
+
+        personnages.update();
     }
 }
