@@ -15,11 +15,11 @@ public class Personnages {
         if(userInput.hasNextLine()){
             a = userInput.nextLine();
             Direction dir = Direction.valueOf(a);
-            if( dir== Direction.AVANT ){
+            if( dir== Direction.AVANT && pos_wag != 0){
                 pos_wag -=1;
             }else if(dir== Direction.HAUT){
                 pos_toît =1;
-            }else if(dir== Direction.ARRIERE){
+            }else if(dir== Direction.ARRIERE && pos_wag != 4){
                 pos_wag +=1;
             }else if(dir== Direction.BAS){
                 pos_toît =0;
