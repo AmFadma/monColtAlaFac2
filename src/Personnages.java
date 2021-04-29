@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Personnages {
     private  String nom;
     private int pos_wag;
-    private int pos_toît=1;
+    private boolean pos_toît=true;
     Scanner userInput = new Scanner(System.in);
 
     public Personnages(String nom) {
@@ -18,11 +18,11 @@ public class Personnages {
             if( dir== Direction.AVANT && pos_wag != 0){
                 pos_wag -=1;
             }else if(dir== Direction.HAUT){
-                pos_toît =1;
+                pos_toît = true ;
             }else if(dir== Direction.ARRIERE && pos_wag != 4){
                 pos_wag +=1;
             }else if(dir== Direction.BAS){
-                pos_toît =0;
+                pos_toît = false;
             }else{
                 System.out.println("pas d'actions possibles");
             }
