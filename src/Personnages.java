@@ -10,6 +10,11 @@ public class Personnages {
         this.nom = nom;
         this.pos_wag= 4;
     }
+
+    /*
+    on peut faire une classe action avec un joueur auteur de l'action et un receveur
+    donc après un tableau d'action pour les faire dans l'ordre ?
+    */
     public void action(){
         String a;
         if(userInput.hasNextLine()){
@@ -49,9 +54,14 @@ public class Personnages {
             }
         }
     }
+
+
+    public void tir(Direction dir){
+        // a mettre dans action
+    }
     //userInput
     public void update(){
         action();
-        System.out.println(pos_wag+"  "+pos_toît );
+        //System.out.println(pos_wag+"  "+pos_toît );
     }
 }

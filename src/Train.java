@@ -9,7 +9,7 @@ public class Train {
         for (int i = 0; i < this.taille; i++) {
             this.train.add(new Wagon(i));
 
-        }
+        }//tab de wagon cf cours
     }
     public int getTaille(){
         return this.taille;
