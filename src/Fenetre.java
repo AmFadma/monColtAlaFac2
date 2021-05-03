@@ -8,7 +8,7 @@ public class Fenetre {
     public JFrame frame;
     public VueTRAIN vt;
 
-    public Fenetre(Terrain t){
+    public Fenetre(Train t){
         frame = new JFrame();
         frame.setTitle("Colt Express");
 

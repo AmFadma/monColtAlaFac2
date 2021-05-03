@@ -1,12 +1,11 @@
-public class Wagon extends Train {
+public class Wagon  {
 
     public final int num_wagon; // mit en final pour ne jamais changer le num du wagon
     public final int etage_wagon;
     public final String nom_wagon; // idem pour le nom du wagon
     public Wagon(int i, int j){
-       super(i);
-        this.num_wagon = i;
-        this.etage_wagon = j;
+        this.etage_wagon= i;
+        this.num_wagon = j;
         this.nom_wagon = "Wagon "+ num_wagon; // par ex "wagon 1"
 
     }
