@@ -20,11 +20,11 @@ public class Colt {
 
         personnages.update();
 
-        EventQueue.invokeLater(() -> {
+       // EventQueue.invokeLater(() -> {
             /** Voici le contenu qui nous intéresse. */
-           Terrain terrain = new Terrain(train);
-            VueTRAIN vue = new VueTRAIN(terrain);
-        });
+          // Terrain terrain = new Terrain(train);
+            //VueTRAIN vue = new VueTRAIN(terrain);
+        //});
 
 
     }
