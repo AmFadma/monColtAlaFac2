@@ -8,6 +8,7 @@ public class VueTRAIN extends JPanel implements Observer{
 
     public VueTRAIN(Terrain terrain){
         this.terrain = terrain;
+
         terrain.addObserver(this);
         Dimension dim = new Dimension(400,200);
         this.setPreferredSize(dim);

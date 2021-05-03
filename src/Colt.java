@@ -1,4 +1,8 @@
 
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Colt {
 
@@ -15,5 +19,13 @@ public class Colt {
         personnages.update();
 
         personnages.update();
+
+       // EventQueue.invokeLater(() -> {
+            /** Voici le contenu qui nous intéresse. */
+          // Terrain terrain = new Terrain(train);
+            //VueTRAIN vue = new VueTRAIN(terrain);
+        //});
+
+
     }
 }

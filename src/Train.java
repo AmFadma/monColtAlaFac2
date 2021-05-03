@@ -7,7 +7,10 @@ public class Train {
     public Train(int taille){
         this.taille = taille;
         for (int i = 0; i < this.taille; i++) {
-            this.train.add(new Wagon(i));
+            for (int j = 0; j< this.taille ; j++){
+                this.train.add(new Wagon(i,j));
+            }
+
 
         }//tab de wagon cf cours
     }
