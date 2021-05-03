@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Train {
-    private final int taille;
-    private ArrayList<Wagon> train = new ArrayList<>();
+    public final int taille;
+    public ArrayList<Wagon> train = new ArrayList<>();
 
     public Train(int taille){
         this.taille = taille;

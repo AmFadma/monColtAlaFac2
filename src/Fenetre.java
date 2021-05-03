@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 public class Fenetre {
-    private JFrame frame;
-    private VueTRAIN vt;
+    public JFrame frame;
+    public VueTRAIN vt;
 
     public Fenetre(Terrain t){
         frame = new JFrame();

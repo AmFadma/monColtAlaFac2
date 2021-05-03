@@ -12,12 +12,19 @@ public class Terrain extends Observable {
     //plateforme avec 1 train n joueurs et fixed nb pnj
     //Personnages personnages = new Personnages("Wyatt");
     //tab avec nb pers et tab avec leur nom pour faire des personngaes ca correctement
-    private ArrayList<Train> tr;
+    public ArrayList<Train> tr = new ArrayList<>();
     public Terrain(Train train){
 
         for (int i = 0; i <= 1; i++) {
             this.tr.add(train);
         }
-
     }
+    public int getSize(){
+        return tr.size();
+    }
+    public Train getContent(int i){
+        return tr.get(i);
+    }
+
+
 }
