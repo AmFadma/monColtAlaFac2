@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -20,10 +19,10 @@ public class Colt {
 
         personnages.update();
 
-       // EventQueue.invokeLater(() -> {
-            /** Voici le contenu qui nous intéresse. */
-          // Terrain terrain = new Terrain(train);
-            //VueTRAIN vue = new VueTRAIN(terrain);
+        // EventQueue.invokeLater(() -> {
+        /** Voici le contenu qui nous intéresse. */
+        // Terrain terrain = new Terrain(train);
+        //VueTRAIN vue = new VueTRAIN(terrain);
         //});
     }
 }

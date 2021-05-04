@@ -16,7 +16,6 @@ public class Fenetre {
 
         vt= new VueTRAIN(t);
         /*grille = new VueGrille(modele);
-
         commandes = new VueCommandes(modele);
         frame.add(commandes);*/
         frame.add(vt);

@@ -6,7 +6,7 @@ public class Train extends Observable{
 
     public Train(int taille){
         this.taille = taille;
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             train.add(new ArrayList<>());
             for (int j = 0; j< this.taille ; j++){
                 train.get(i).add(new Wagon(i,j));
