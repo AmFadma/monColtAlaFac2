@@ -5,10 +5,16 @@ public class Personnages {
     private int pos_wag;
     private boolean pos_toît=true;
     Scanner userInput = new Scanner(System.in);
+    public Butin butin;
 
     public Personnages(String nom) {
         this.nom = nom;
         this.pos_wag= 4;
+        this.butin = new Butin(0 ,0,0);
+    }
+
+    public int getThune(){
+        return butin.bijoux* butin.getMoneyBijoux() + butin.bourses* butin.getMoneyBourses() + butin.magots* butin.getMoneyMagot();
     }
 
     /*

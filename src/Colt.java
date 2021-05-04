@@ -15,9 +15,10 @@ public class Colt {
         Personnages personnages = new Personnages("Wyatt");
         //Terrain t = new Terrain(train);
         Fenetre f = new Fenetre(train);
-        personnages.update();
+        /*personnages.update();
+        personnages.update();*/
+        System.out.println(personnages.getThune());
 
-        personnages.update();
 
         // EventQueue.invokeLater(() -> {
         /** Voici le contenu qui nous intéresse. */
