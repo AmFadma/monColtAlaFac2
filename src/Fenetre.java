@@ -8,6 +8,8 @@ public class Fenetre {
     public JFrame frame;
     public VueTRAIN vt;
 
+    public VueAction va;
+
     public Fenetre(Train t){
         frame = new JFrame();
         frame.setTitle("Colt Express");
@@ -15,10 +17,10 @@ public class Fenetre {
         frame.setLayout(new FlowLayout());
 
         vt= new VueTRAIN(t);
-        /*grille = new VueGrille(modele);
-        commandes = new VueCommandes(modele);
-        frame.add(commandes);*/
         frame.add(vt);
+        va= new VueAction(t);
+        frame.add(va);
+
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
