@@ -4,9 +4,11 @@ import java.util.Random;
 public class Train extends Observable{
     public final int taille;
     public ArrayList<ArrayList<Wagon>> train = new ArrayList<>();
+    public Personnages p;
 
-    public Train(int taille){
+    public Train(int taille, Personnages  p){
         this.taille = taille;
+        this.p=p;
         for (int i = 0; i < 2; i++) {
             train.add(new ArrayList<>());
             for (int j = 0; j< this.taille ; j++){
