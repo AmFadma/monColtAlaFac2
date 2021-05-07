@@ -2,14 +2,13 @@ import java.util.Scanner;
 //import java.util.*;
 public class Personnages {
     public  String nom;
-    public int pos_wag;
+    public int pos_wag=3;
     public int pos_toît=0;
     Scanner userInput = new Scanner(System.in);
     public Butin butin;
 
     public Personnages(String nom) {
         this.nom = nom;
-        this.pos_wag= 4;
         this.butin = new Butin(0 ,0,0);
     }
 

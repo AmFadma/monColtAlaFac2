@@ -9,12 +9,14 @@ public class Colt {
 
     public static void main(String[] args) {
         int NB_WAGONS = 4;
-        int NB_PERS = 1;
-        Personnages personnages = new Personnages("Wyatt");
-        Train train = new Train(NB_WAGONS,personnages);
+
+        //Personnages personnages = new Personnages("Wyatt");
+        String[] names = {"joueur1"};
+        Train train = new Train(NB_WAGONS,names);
         //plateforme avec 1 train n joueurs et fixed nb pnj
         //Personnages personnages = new Personnages("Wyatt");
         //Terrain t = new Terrain(train);
+
         Fenetre f = new Fenetre(train);
         /*personnages.update();
         personnages.update();*/

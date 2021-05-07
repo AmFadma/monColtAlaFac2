@@ -1,7 +1,5 @@
 //package IG;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 
 public class Fenetre {
@@ -13,13 +11,15 @@ public class Fenetre {
     public Fenetre(Train t){
         frame = new JFrame();
         frame.setTitle("Colt Express");
+        frame.setLayout(new BorderLayout());
 
-        frame.setLayout(new FlowLayout());
+        va= new VueAction(t);
+        frame.add(va,BorderLayout.NORTH);
 
         vt= new VueTRAIN(t);
         frame.add(vt);
-        va= new VueAction(t);
-        frame.add(va);
+
+
 
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

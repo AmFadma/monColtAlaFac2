@@ -24,7 +24,8 @@ public class VueTRAIN extends JPanel implements Observer{
         super.paintComponent(g);
 
         for (int i = 0; i < 2; i++) {
-            for (int j =0 ; j < this.train.taille; j++) {
+            int j=0;
+            for (Wagon w : train.train.get(i)) {
                 /**
                  * ... Appeler une fonction d'affichage auxiliaire.
                  * On lui fournit les informations de dessin [g] et les
@@ -44,8 +45,7 @@ public class VueTRAIN extends JPanel implements Observer{
 
 
                 g.drawRect(20+j*2*taille,120+i*taille,2*taille,1*taille);
-
-
+                j++;
                 //paint(g, modele.getCellule(i, j), (i - 1) * TAILLE, (j - 1) * TAILLE);
             }
         }
