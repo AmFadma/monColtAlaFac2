@@ -53,6 +53,7 @@ public class Action implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //pour faire le if faire un variable globale count qui compte 3 par 3 les actions cf vocal
        for(int i = 0; i < 3; i++){
            for(int j = i, n=0 ; n < train.personnages.size(); n++,j+=3){
                if(train.listeAction.get(j) == "bas"){
