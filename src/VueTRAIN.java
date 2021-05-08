@@ -32,11 +32,14 @@ public class VueTRAIN extends JPanel implements Observer{
 
     }
     public void update(){
+
         repaint();
+
     }
 
 
     public void paintComponent(Graphics g) {
+        super.repaint();
         super.paintComponent(g);
         g.setPaintMode();
         this.add(joueur1);
@@ -75,21 +78,39 @@ public class VueTRAIN extends JPanel implements Observer{
             }
         }
 
-        g.drawString("Joueur 1",35,150);
-        g.drawString("Bandit 1: ",35,320);
-        g.drawString("Magots : ",35,335);
-        g.drawString("Bijoux : ",35,350);
-        g.drawString("Bourses : ",35,365);
+        for (int i = 0; i<train.personnages.size();i++) {
 
-        g.drawString("Bandit 2 : ",335,320);
-        g.drawString("Magots : ",335,335);
-        g.drawString("Bijoux : ",335,350);
-        g.drawString("Bourses : ",335,365);
 
-        g.drawString("Bandit 3 : ",635,320);
-        g.drawString("Magots : ",635,335);
-        g.drawString("Bijoux : ",635,350);
-        g.drawString("Bourses : ",635,365);
+            g.drawString(train.personnages.get(i).nom, 230+10*20*(train.personnages.size()-train.personnages.get(i).pos_wag), 160+(train.personnages.get(i).pos_toît*((taille/4 )+ (taille/2)))+i*20);
+        }
+
+
+        for (int i = 0; i<train.personnages.size();i++) {
+            g.drawString(train.personnages.get(i).nom, 35+i*10*taille/train.personnages.size(), 320);
+            g.drawString("Magots : " + train.personnages.get(i).butin.magots, 35+i*10*taille/train.personnages.size(), 335);
+            g.drawString("Bijoux : " + train.personnages.get(i).butin.bijoux, 35+i*10*taille/train.personnages.size(), 350);
+            g.drawString("Bourses : " + train.personnages.get(i).butin.bourses, 35+i*10*taille/train.personnages.size(), 365);
+        }
+
+        /*g.drawString(train.personnages.get(1).nom,335,320);
+        g.drawString("Magots : "+ train.personnages.get(1).butin.magots,335,335);
+        g.drawString("Bijoux : "+ train.personnages.get(1).butin.bijoux,335,350);
+        g.drawString("Bourses : "+ train.personnages.get(1).butin.bourses,335,365);
+
+        g.drawString(train.personnages.get(i).nom, 35+i*100, 310+i*10);
+            g.drawString("Magots : " + train.personnages.get(i).butin.magots, 35+i*100, 330+i*10);
+            g.drawString("Bijoux : " + train.personnages.get(i).butin.bijoux, 35+i*100, 340+i*10);
+            g.drawString("Bourses : " + train.personnages.get(i).butin.bourses, 35+i*100, 350+i*10);
+        }
+
+         */
+
+        /*g.drawString(train.personnages.get(2).nom,635,320);
+        g.drawString("Magots : "+ train.personnages.get(2).butin.magots,635,335);
+        g.drawString("Bijoux : "+ train.personnages.get(2).butin.bijoux,635,350);
+        g.drawString("Bourses : "+ train.personnages.get(2).butin.bourses,635,365);
+
+         */
 
 
     }

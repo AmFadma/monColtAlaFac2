@@ -12,29 +12,33 @@ public class VueAction extends JPanel{
         this.setLayout(new GridBagLayout());
 
         gc = new GridBagConstraints();
+        gc.weightx = 4;
+        //gc.weighty = 3;
 
 
         gc.fill = GridBagConstraints.HORIZONTAL;
         gc.insets = new Insets(0, 1, 0, 1);
         gc.ipady = gc.anchor = GridBagConstraints.CENTER;
-        gc.weightx = 1;
+
 
 
         JButton bas = new JButton("Depl v");
         gc.gridx = 1;
         gc.gridy = 2;
-        gc.gridwidth = 1;
+        gc.gridwidth = 2;
 
         this.add(bas,gc);
 
         JButton haut = new JButton("Depl ^");
         gc.gridx = 1;
         gc.gridy = 0;
+        gc.gridwidth = 2;
         this.add(haut,gc);
 
         JButton avant = new JButton("Depl >");
         gc.gridx = 2;
         gc.gridy = 1;
+
         this.add(avant,gc);
 
         JButton arriere = new JButton("< Depl");
@@ -43,7 +47,10 @@ public class VueAction extends JPanel{
         this.add(arriere,gc);
 
         JButton ButAction = new JButton("ACTION");
-        this.add(ButAction);
+        gc.gridx = 3;
+        gc.gridy = 1;
+
+        this.add(ButAction,gc);
 
         /*for(Personnages p : train.personnages){
 

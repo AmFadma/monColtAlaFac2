@@ -23,7 +23,9 @@ public class Fenetre {
 
 
         vt= new VueTRAIN(t);
+
        frame.add(vt);
+
         //JLabel label1 = new JLabel("Perso 1" );
 
         //frame.add(label1);
