@@ -5,7 +5,7 @@ public class Train extends Observable{
     public final int taille;
     public ArrayList<ArrayList<Wagon>> train = new ArrayList<>();
     public ArrayList<Personnages> personnages = new ArrayList<>();
-    public int nbTours = 3; //a mettre dans le main à l'avenir
+    public int nbTours = 1; //a mettre dans le main à l'avenir
     ArrayList<String> listeAction= new ArrayList<>();;
 
     public Train(int taille, String[] s){
@@ -25,8 +25,6 @@ public class Train extends Observable{
         for (String names : s){
             personnages.add(new Personnages(names));
         }
-
-        //this.listeAction = new ArrayList<String>(9);
     }
     public int getSize(){
         return this.taille;
@@ -34,5 +32,18 @@ public class Train extends Observable{
 
     public Wagon getWagon(int i, int j){
         return train.get(i).get(j);
+    }
+
+    public int winner(){
+        int winnerId =-1;
+        int winnerMoney=0 ;
+        for (int i =0; i< personnages.size();i++){
+            int money = personnages.get(i).getThune();
+            if(money > winnerMoney){
+                winnerMoney=money;//optionnel
+                winnerId = i;
+            }
+        }
+        return winnerId;
     }
 }

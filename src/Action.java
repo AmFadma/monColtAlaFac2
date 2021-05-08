@@ -53,6 +53,7 @@ public class Action implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //pour faire le if faire un variable globale count qui compte 3 par 3 les actions cf vocal
        for(int i = 0; i < 3; i++){
            for(int j = i, n=0 ; n < train.personnages.size(); n++,j+=3){
                if(train.listeAction.get(j) == "bas"){
@@ -68,7 +69,22 @@ public class Action implements ActionListener  {
                }
            }
        }
-       //tours -=1;
+       //reset du tabeau d'actions
+        train.listeAction = new ArrayList<>();
+
+       //décompte des tours de jeux
+       train.nbTours-=1;
+
+       //winner
+        if(train.nbTours == 0) {
+            int winner = train.winner();
+            if (winner == -1){
+                System.out.println("wow égalité");
+            }else{
+                System.out.println("le gagnant est "+ train.personnages.get(winner));
+            }
+            System.exit(0);
+        }
     }
 
     /* premier test

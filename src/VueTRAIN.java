@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class VueTRAIN extends JPanel implements Observer{
-    private Train train;
+    public Train train;
     private static final int taille = 90;
     public Personnages p;
    // public final TextField tf;

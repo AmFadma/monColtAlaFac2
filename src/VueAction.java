@@ -58,10 +58,13 @@ public class VueAction extends JPanel{
 
             }
         }*/
+        //if a faire pour lock les boutons si tab < train.personnages.size() * 3 ca:
         bas.addActionListener(e -> train.listeAction.add("bas"));
         haut.addActionListener(e -> train.listeAction.add("haut"));
         avant.addActionListener(e -> train.listeAction.add("avant"));
         arriere.addActionListener(e -> train.listeAction.add("arriere"));
+
+        //sinon ca
         Action a = new Action(train);
         ButAction.addActionListener(a);
     }
