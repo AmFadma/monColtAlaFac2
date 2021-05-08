@@ -8,7 +8,7 @@ public class Action implements ActionListener {
     Train train;
 
     public Action(Train train){
-        this.perso = train.p;
+        //this.perso = pers;
         this.train = train;
 
 

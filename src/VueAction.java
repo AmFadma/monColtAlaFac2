@@ -8,10 +8,13 @@ public class VueAction extends JPanel{
     public  GridBagConstraints gc;
     public static JPanel panel;
 
+
     public VueAction(Train train){
         this.train=train;
+
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
+
 
 
         //buttonProp();
