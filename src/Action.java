@@ -68,7 +68,22 @@ public class Action implements ActionListener  {
                }
            }
        }
-       //tours -=1;
+       //reset du tabeau d'actions
+        train.listeAction = new ArrayList<>();
+
+       //décompte des tours de jeux
+       train.nbTours-=1;
+
+       //winner
+        if(train.nbTours == 0) {
+            int winner = train.winner();
+            if (winner == -1){
+                System.out.println("wow égalité");
+            }else{
+                System.out.println("le gagnant est "+ train.personnages.get(winner));
+            }
+            System.exit(0);
+        }
     }
 
     /* premier test
