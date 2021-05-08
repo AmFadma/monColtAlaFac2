@@ -1,14 +1,16 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-public class Action implements ActionListener {
+public class Action extends JPanel implements ActionListener  {
     Scanner userInput = new Scanner(System.in);
     Personnages perso;
     Train train;
 
-    public Action(Train train){
-        //this.perso = pers;
+    public Action(Train train, Personnages pers){
+       // this.perso = train.personnages.get(0);
+        this.perso = pers;
         this.train = train;
 
 
