@@ -9,7 +9,7 @@ public class Personnages {
 
     public Personnages(String nom) {
         this.nom = nom;
-        this.pos_wag= 4;
+        this.pos_wag= 3;
         this.butin = new Butin(0 ,0,0);
     }
 
