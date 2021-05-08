@@ -18,6 +18,8 @@ public class Colt {
         //Terrain t = new Terrain(train);
 
         Fenetre f = new Fenetre(train);
+        VueTRAIN vueTRAIN = new VueTRAIN(train);
+        VueAction vueAction = new VueAction(train);
         /*personnages.update();
         personnages.update();*/
         //System.out.println(personnages.getThune());
