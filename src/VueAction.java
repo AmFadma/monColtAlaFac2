@@ -18,15 +18,15 @@ public class VueAction extends JPanel{
 
 
         gc.fill = GridBagConstraints.HORIZONTAL;
-        gc.insets = new Insets(1, 1, 0, 1);
+        gc.insets = new Insets(0, 1, 0, 1);
         gc.ipady = gc.anchor = GridBagConstraints.CENTER;
-        gc.weightx = 3;
+        gc.weightx = 1;
 
 
         JButton bas = new JButton("Depl v");
         gc.gridx = 1;
         gc.gridy = 2;
-        gc.gridwidth = 2;
+        gc.gridwidth = 1;
 
         this.add(bas,gc);
 
