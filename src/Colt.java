@@ -11,7 +11,7 @@ public class Colt {
         int NB_WAGONS = 4;
 
         //Personnages personnages = new Personnages("Wyatt");
-        String[] names = {"joueur1"};
+        String[] names = {"joueur1","joueur2"};
         Train train = new Train(NB_WAGONS,names);
         //plateforme avec 1 train n joueurs et fixed nb pnj
         //Personnages personnages = new Personnages("Wyatt");
