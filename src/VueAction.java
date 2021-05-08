@@ -6,7 +6,7 @@ public class VueAction extends JPanel{
 
     private Train train;
     public  GridBagConstraints gc;
-
+    int i=0 ;
     public VueAction(Train train){
         this.train=train;
         this.setLayout(new GridBagLayout());
@@ -23,7 +23,7 @@ public class VueAction extends JPanel{
         JButton bas = new JButton("Depl v");
         gc.gridx = 1;
         gc.gridy = 2;
-        gc.gridwidth = 2;
+        gc.gridwidth = 1;
 
         this.add(bas,gc);
 
@@ -45,11 +45,17 @@ public class VueAction extends JPanel{
         JButton ButAction = new JButton("ACTION");
         this.add(ButAction);
 
-        Action a = new Action(train, train.personnages.get(0));
-        bas.addActionListener(e -> a.listeAction.add("bas"));
-        haut.addActionListener(e -> a.listeAction.add("haut"));
-        avant.addActionListener(e -> a.listeAction.add("avant"));
-        arriere.addActionListener(e -> a.listeAction.add("arriere"));
+        /*for(Personnages p : train.personnages){
+
+            for(int j=0; j < 3; j++){
+
+            }
+        }*/
+        bas.addActionListener(e -> train.listeAction.add("bas"));
+        haut.addActionListener(e -> train.listeAction.add("haut"));
+        avant.addActionListener(e -> train.listeAction.add("avant"));
+        arriere.addActionListener(e -> train.listeAction.add("arriere"));
+        Action a = new Action(train);
         ButAction.addActionListener(a);
     }
 }

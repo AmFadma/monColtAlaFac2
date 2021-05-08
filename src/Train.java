@@ -6,6 +6,7 @@ public class Train extends Observable{
     public ArrayList<ArrayList<Wagon>> train = new ArrayList<>();
     public ArrayList<Personnages> personnages = new ArrayList<>();
     public int nbTours = 3; //a mettre dans le main à l'avenir
+    ArrayList<String> listeAction= new ArrayList<>();;
 
     public Train(int taille, String[] s){
         this.taille = taille;
@@ -20,9 +21,12 @@ public class Train extends Observable{
                 }
             }
         }//tab de wagon cf cours
+
         for (String names : s){
             personnages.add(new Personnages(names));
         }
+
+        //this.listeAction = new ArrayList<String>(9);
     }
     public int getSize(){
         return this.taille;

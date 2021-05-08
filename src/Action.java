@@ -5,17 +5,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Action implements ActionListener  {
-    Personnages perso;
-    Train train;
-    ArrayList<String> listeAction;
-    public Action(Train train, Personnages pers){
-       // this.perso = train.personnages.get(0);
-        this.perso = pers;
-        this.train = train;
-        this.listeAction = new ArrayList<>(train.personnages.size());
 
+    Train train;
+
+    public Action(Train train){
+        this.train = train;
     }
-    public void haut(){
+    public void haut(int i){
+        Personnages perso = train.personnages.get(i);
         if (perso.pos_toît == 0){
             System.out.println(perso.nom+" est deja sur le toit.");
         } else {
@@ -24,7 +21,8 @@ public class Action implements ActionListener  {
         }
     }
 
-    public void bas(){
+    public void bas(int i){
+        Personnages perso = train.personnages.get(i);
         if (perso.pos_toît == 1){
             System.out.println(perso.nom+" est deja dans le wagon.");
         } else {
@@ -33,7 +31,8 @@ public class Action implements ActionListener  {
         }
     }
 
-    public void avant(){
+    public void avant(int i){
+        Personnages perso = train.personnages.get(i);
         if( perso.pos_wag == 0){
             System.out.println(perso.nom+" est deja dans le premier wagon.");
         } else {
@@ -42,7 +41,8 @@ public class Action implements ActionListener  {
         }
     }
 
-    public void arriere(){
+    public void arriere(int i){
+        Personnages perso = train.personnages.get(i);
         if(perso.pos_wag == train.taille-1){
             System.out.println(perso.nom+" est deja dans le dernier wagon.");
         } else {
@@ -53,22 +53,23 @@ public class Action implements ActionListener  {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       for(String s : listeAction){
-           if(s == "bas"){
-               bas();
-           }else if (s == "haut"){
-               haut();
-           }
-           else if (s == "avant"){
-               avant();
-           }
-           else if (s == "arriere"){
-               arriere();
+       for(int i = 0; i < 3; i++){
+           for(int j = i, n=0 ; n < train.personnages.size(); n++,j+=3){
+               if(train.listeAction.get(j) == "bas"){
+                   bas(n); // ou bas(j/3)
+               }else if (train.listeAction.get(j) == "haut"){
+                   haut(n); // ou haut(j/3)
+               }
+               else if (train.listeAction.get(j) == "avant"){
+                   avant(n); // ou avant(j/3)
+               }
+               else if (train.listeAction.get(j) == "arriere"){
+                   arriere(n); // ou arriere(j/3)
+               }
            }
        }
        //tours -=1;
     }
-
 
     /* premier test
     public void action(){
