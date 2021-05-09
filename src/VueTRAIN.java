@@ -81,7 +81,7 @@ public class VueTRAIN extends JPanel implements Observer{
         for (int i = 0; i<train.personnages.size();i++) {
 
 
-            g.drawString(train.personnages.get(i).nom, 820/train.taille+(train.personnages.size()-train.personnages.get(i).pos_wag)*(8*taille)/train.taille, 40+(2*train.personnages.get(i).pos_toît*((taille/4 )+ (taille/2)))/(train.personnages.size())+i*20);
+            g.drawString(train.personnages.get(i).nom, 100/train.taille+train.personnages.get(i).pos_wag*(8*taille)/train.taille, 40+(2*train.personnages.get(i).pos_toît*((taille/4 )+ (taille/2)))/(train.personnages.size())+i*20);
         }
 
 
@@ -92,31 +92,37 @@ public class VueTRAIN extends JPanel implements Observer{
             g.drawString("Bourses : " + train.personnages.get(i).butin.bourses, 35+i*10*taille/train.personnages.size(), 265);
 
         }
-        System.out.println(train.getWagon(1,3).Nb_Butin + " "+train.getWagon(1,3).butin.bijoux + " "+train.getWagon(1,3).butin.bourses + " "+train.getWagon(1,3).butin.magots);
+
         for (int j = 0; j<this.train.taille; j++){
 
+
                 int bourses = train.getWagon(1,j).butin.bourses;
-                //System.out.println(j);
-                //System.out.println(bourses);
 
                 int bijoux = train.getWagon(1,j).butin.bijoux;
                 int magots =train.getWagon(1,j).butin.magots;
                 int butin = bourses+bijoux+magots;
-            //g.drawString("coucou",(taille+150+j*2*(8*taille)/train.taille)/butin, 145);
+
                 if (bourses != 0){
 
                     for(int k = 0; k<bourses;k++){
-                        g.drawString("Bourse",(taille+150+(j-1)*2*(8*taille)/train.taille)/butin, 145 + 30*k/butin);
+                        g.drawString("Bourse",(taille+40+(j)*(8*taille)/train.taille), 130 + 50*k/butin);
                     }
 
                 }
                 if (bijoux != 0){
                     for(int k = 0; k<bijoux;k++){
-                        g.drawString("Bijoux",(taille+150+(j-1)*2*(8*taille)/train.taille)/butin, 145+(10*bourses)+ 30*k/butin);
+                        g.drawString("Bijoux",(taille+40+(j)*(8*taille)/train.taille), 130+(15*bourses)+ 50*k/butin);
 
                     }
 
                 }
+                if (magots != 0){
+
+                        g.drawString("Magot",(taille+40+(j)*(8*taille)/train.taille), 150/butin);
+
+                }
+
+
 
 
 
