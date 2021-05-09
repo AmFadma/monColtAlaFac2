@@ -5,7 +5,7 @@ public class Train extends Observable{
     public final int taille;
     public ArrayList<ArrayList<Wagon>> train = new ArrayList<>();
     public ArrayList<Personnages> personnages = new ArrayList<>();
-    public int nbTours = 1; //a mettre dans le main à l'avenir
+    public int nbTours = 5; //a mettre dans le main à l'avenir
     ArrayList<String> listeAction= new ArrayList<>();;
 
     public Train(int taille, String[] s){
@@ -46,4 +46,5 @@ public class Train extends Observable{
         }
         return winnerId;
     }
+
 }
