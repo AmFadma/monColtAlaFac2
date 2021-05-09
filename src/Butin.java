@@ -1,13 +1,23 @@
 import java.util.Random;
 
 public class Butin {
-    public int bourses,magots,bijoux;
+    public int posWagon ;
+
+   public int bourses,magots,bijoux;
+
+
+    //position wagon == numero de wagon dans lequel il est
     //int argent pour les personanges
     public Butin(int bourses,int bijoux,int magots){
         this.bijoux = bijoux;
         this.bourses = bourses;
         this.magots = magots;
+
+
+
     }
+
+
 
     public int getMoneyMagot(){
         return 1000;
