@@ -82,6 +82,8 @@ public class VueTRAIN extends JPanel implements Observer{
 
 
             g.drawString(train.personnages.get(i).nom, 100/train.taille+train.personnages.get(i).pos_wag*(8*taille)/train.taille, 40+(2*train.personnages.get(i).pos_toît*((taille/4 )+ (taille/2)))/(train.personnages.size())+i*20);
+           
+
         }
 
 
@@ -124,7 +126,7 @@ public class VueTRAIN extends JPanel implements Observer{
 
         }
 
-        g.drawString("Marshall",100/train.taille+train.marshall.pos_wag*(8*taille)/train.taille, 40+(2*train.marshall.pos_toît*((taille/4 )+ (taille/2)))/(train.personnages.size()));
+        g.drawString("Marshall",400/train.taille+train.marshall.pos_wag*(8*taille)/train.taille, 40+(2*train.marshall.pos_toît*((taille/4 )+ (taille/2)))/(train.personnages.size()));
 
 
 
