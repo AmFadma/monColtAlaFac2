@@ -1,0 +1,36 @@
+1:--------------------
+Dans la partie 1. 3 tout a été fait . Cette partie a été réalisée en début de projet à deux en screen share sur discord. 
+Il n’y a eu aucune difficulté particulière dans cette partie. 
+
+La partie 1.4 a été faite entièrement elle aussi. Elle utilise les fichiers observer et observable vu en cours et récupérés  du fichier Conway.
+
+La partie 2. 0 à elle aussi été entièrement faite. 
+
+
+La partie 2.1 n'a pas été faite du moins partiellement.  
+Dans les commentaires du code du fichier vuAction  on peut voir nos test liés à cette partie.  
+Seuls les boutons de déplacement était verrouillé pendant que le bouton action était libre .
+
+Enfin la partie 2. 2 a été réalisé en entier de nombreuses difficultés ont été rencontrées lors de la réalisation de cette partie. 
+Certains problèmes rencontrés restent même présents à la fin de notre projet. 
+
+En expression libre nous avons ajouter un raccourcis clavier qui à la même fonctionnalité que le bouton Action sur notre frame.
+
+3: ----------------------
+Les seuls problèmes restant  dans notre code concerne les échanges de tirs et le  braquage de certains objets. 
+Les actions étant réalisées  les unes après les autres, il est possible, lorsque dans le même groupe d'action, que le personnage1 se déplace à un endroit 
+et le deuxième tir à l'endroit d'arriver du premier que la balle manque sa cible. Cela n'arrive pas à tout le temps est très aléatoire donc très difficile à corriger.
+
+(Les problèmes suivant concernent les personnages et le butin )
+
+Le deuxième problème concerne les échanges de balle lorsque la personne touchée par la balle est au bon endroit. 
+Il est possible lorsque le personnage qui vient d'être touché et qui vient de lâcher son butin ne bouge pas si on lui retire dessus de lui faire perdre un putin qui n'existe pas.
+Enfin le dernier problème  est que l'on peut  effectuer le braquage d'objets qui ne sont plus dans le train/un wagon quelconque et donc voler aléatoirement  certains objets
+(qui existent ou pas).
+
+Si certaines fonctionnalités n'ont pas été implémenter c'est bien souvent à cause de ces bugs qui comme ils étaientt pas résolus lorsque 
+l'on essaie d'implémenter de nouvelles fonctionnalités rendait ses fonctionnalités buggées. 
+
+4:----------------------
+Aucun code n'a été emprunté ailleurs à part les dossiers observer et observable. 
+Nous nous sommes beaucoup aidé de StackOverflow pour résoudre nos problèmes et bien sûr des questions que nous avons posées à notre professeur.
