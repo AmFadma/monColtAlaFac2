@@ -44,6 +44,15 @@ public class Action implements ActionListener  {
             System.out.println(perso.nom+"  avance.");
         }
     }
+    public void marshallShoots(){
+        for(Personnages p : train.personnages){
+            if(train.marshall.pos_wag == p.pos_wag){
+                DropPers(p);
+                p.pos_toît = 0;
+                System.out.println(p.nom + " s'est fait tirer dessus par le Marshall");
+            }
+        }
+    }
 
     public void arriere(Personnages perso){ // avant on fait int i et on prenait le perso ici
         //Personnages perso = train.personnages.get(i);
@@ -77,24 +86,8 @@ public class Action implements ActionListener  {
         }
         return nbPers;*/
     }
-    public void tirBas(Personnages perso, Direction dir) {
 
-        ArrayList<Personnages> quiEstLa = nbPersDir(perso, dir);
-        //-----------cas qui font rien---
-
-        if (quiEstLa.size() == 0) {
-            perso.Nb_Balles -= 1;
-            System.out.println(perso.nom + " tire mais rien ne se passe.");
-        } else {
-            int ShotOnWho = new Random().nextInt((quiEstLa.size() - 1 - 0) + 1);
-            for (Personnages p : train.personnages) {
-                if (p.pos_toît == quiEstLa.get(ShotOnWho).pos_toît && p.pos_wag == quiEstLa.get(ShotOnWho).pos_wag) {
-                    DropPers(p);
-                }
-            }
-        }
-    }
-    public void tirHaut(Personnages perso, Direction dir){
+    public void tir(Personnages perso, Direction dir){
 
         ArrayList<Personnages> quiEstLa = nbPersDir(perso,dir);
         //-----------cas qui font rien---
@@ -127,40 +120,6 @@ public class Action implements ActionListener  {
 
         }*/
     }
-    public void tirArriere(Personnages perso, Direction dir) {
-
-        ArrayList<Personnages> quiEstLa = nbPersDir(perso, dir);
-        //-----------cas qui font rien---
-
-        if (quiEstLa.size() == 0) {
-            perso.Nb_Balles -= 1;
-            System.out.println(perso.nom + " tire mais rien ne se passe.");
-        } else {
-            int ShotOnWho = new Random().nextInt((quiEstLa.size() - 1 - 0) + 1);
-            for (Personnages p : train.personnages) {
-                if (p.pos_toît == quiEstLa.get(ShotOnWho).pos_toît && p.pos_wag == quiEstLa.get(ShotOnWho).pos_wag) {
-                    DropPers(p);
-                }
-            }
-        }
-    }
-    public void tirAvant(Personnages perso, Direction dir) {
-
-        ArrayList<Personnages> quiEstLa = nbPersDir(perso, dir);
-        //-----------cas qui font rien---
-
-        if (quiEstLa.size() == 0) {
-            perso.Nb_Balles -= 1;
-            System.out.println(perso.nom + " tire mais rien ne se passe.");
-        } else {
-            int ShotOnWho = new Random().nextInt((quiEstLa.size() - 1 - 0) + 1);
-            for (Personnages p : train.personnages) {
-                if (p.pos_toît == quiEstLa.get(ShotOnWho).pos_toît && p.pos_wag == quiEstLa.get(ShotOnWho).pos_wag) {
-                    DropPers(p);
-                }
-            }
-        }
-    }
 
     public void déplacementM(Marshall m){
         int direction = new Random().nextInt((2-1)+1)+1;
@@ -186,6 +145,7 @@ public class Action implements ActionListener  {
         les déplacements du marshall
          */
         déplacementM(train.marshall);
+        marshallShoots();
         System.out.println(train.marshall.pos_toît + " "+train.marshall.pos_wag);
         for(int j = 0, n=0 ; n < 2; n++,j+=counter){
             if(train.listeAction.get(j) == "bas"){
@@ -203,16 +163,16 @@ public class Action implements ActionListener  {
                 braquage(train.personnages.get(n)); // ou arriere(j/3)
             }
             else if (train.listeAction.get(j) == "tirHaut"){
-                tirHaut(train.personnages.get(n),Direction.HAUT);
+                tir(train.personnages.get(n),Direction.HAUT);
             }
             else if (train.listeAction.get(j) == "tirBas"){
-                tirBas(train.personnages.get(n),Direction.BAS);
+                tir(train.personnages.get(n),Direction.BAS);
             }
             else if (train.listeAction.get(j) == "tirArriere"){
-                tirArriere(train.personnages.get(n),Direction.ARRIERE);
+                tir(train.personnages.get(n),Direction.ARRIERE);
             }
             else if (train.listeAction.get(j) == "tirAvant"){
-                tirAvant(train.personnages.get(n),Direction.AVANT);
+                tir(train.personnages.get(n),Direction.AVANT);
             }
         }
         counter-=1;
@@ -220,6 +180,7 @@ public class Action implements ActionListener  {
         train.listeAction.remove( 0);
         train.listeAction.remove( counter);
         //for (String s : train.listeAction){System.out.println(s);} pour tester
+        marshallShoots();
 
        //décompte des tours de jeux
        if (train.listeAction.size() == 0){
