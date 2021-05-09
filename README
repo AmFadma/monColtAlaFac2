@@ -8,35 +8,54 @@ Il n’y a eu aucune difficulté particulière dans cette partie, une fois le su
 PARTIE 1.4\
 La partie 1.4 a été faite entièrement elle aussi. Elle utilise les fichiers observer et observable vu en cours et récupérés  du fichier Conway.
 Il a été difficile d'obtenir un affichage correcte des boutons et du train sachant qu'on passe par une classe fenetre et deux classes VueTrain et VueAction,
-contrairement à ce que nous avons pu trouver sur StackOverflow ou autres sites internet que nous avons consulté.
+contrairement à ce que nous avons pu trouver sur StackOverflow ou autres sites internet que nous avons consulté. 
+L'utilisation des GridBagLayout était assez difficile à comprende au debut. 
 
-La partie 2. 0 à elle aussi été entièrement faite. 
+
+PARTIE 2.0\
+La partie 2. 0 à elle aussi été entièrement faite. Nous n'avons pas rencontré de problemes particuliers dans cette partie du projet.
 
 
-La partie 2.1 n'a pas été faite du moins partiellement.  
+PARTIE 2.1\
+La partie 2.1 n'a pas été faite, ou du moins partiellement.  
 Dans les commentaires du code du fichier vuAction  on peut voir nos test liés à cette partie.  
-Seuls les boutons de déplacement était verrouillé pendant que le bouton action était libre .
+Seuls les boutons de déplacement était verrouillé pendant que le bouton action était libre, nous n'avons pas réussi à faire autrement.
 
-Enfin la partie 2. 2 a été réalisé en entier de nombreuses difficultés ont été rencontrées lors de la réalisation de cette partie. 
-Certains problèmes rencontrés restent même présents à la fin de notre projet. 
+PARTIE 2.2\
+Enfin la partie 2. 2 a été réalisée en entier. De nombreuses difficultés ont été rencontrées lors de la réalisation de cette partie. 
+Certains problèmes rencontrés restent même présents lors du rendu ne notre projet. 
 
-En expression libre nous avons ajouter un raccourcis clavier qui à la même fonctionnalité que le bouton Action sur notre frame.
+PARTIE 2.3\
+En expression libre, nous avions voulu ajouter un raccourcis clavier qui a la même fonctionnalité que le bouton Action sur notre frame, par manque de temps, cest ajout s'est soldé par un échec .
 
-3: ----------------------
-Les seuls problèmes restant  dans notre code concerne les échanges de tirs et le  braquage de certains objets. 
+
+2- CHOIX D'ARCHITECTURE/
+
+Nous avons decidé de creer une classe principale Colt dans laquelle il y a notre fonction main, une classe train qui s'occupe de creer le train. 
+Cette classe contient une liste de Personnges (nos bandits) ainsi qu'un tableau de Wagons (de quoi est constitué notre train). Nous avons Evidement crée deux classes Personnages et wagons. 
+La classe personnes sert à creer les Bandits et elle est classe mere de la classe Marshall. Ainsi, le marshal herite de toutes les fonctionalités et attributs de personnes. 
+Le wagon lui detient un nombre de butin de type Butin. Cette Classe butin est constituée des trois differents types de butins : Magot, Bijoux et Bourse. 
+Afin d'afficher le train, les personnes ainsi que les butins nous utilisons une classe VueTrain qui herite de la classe JPanel. Grace à celle ci nous pouvons afficher notre train dans une fenetre. 
+Nous faisons noc appel a cette classe VueTrain dans notre classe Fenetre qui est spécialement crée pour l'affichage (elle contient la frame).
+Afin que toutes les actions des personnes puissent etre accomplies nous avons crée une classe Action dans laquelle nous avons ecrit nos methodes de mouvement (deplacement, braquage etc..)
+Pour pouvoir afficher des boutons que nous alors pouvoir utiliser pour accoplir les differentes actions nous avons crée une Classe VueAction qui herite de JPanel et qui affiche dans Fentre nos differentts boutons.
+(Nous avons également crée une classe enum Direction mais nous aurions tout aussi bien pu ajouter cet enum directement dans notre classe principale).
+
+3-PROBLEMES PRESENTS\
+Les seuls problèmes restant  dans notre code concernent les échanges de tirs et le  braquage de certains objets. 
 Les actions étant réalisées  les unes après les autres, il est possible, lorsque dans le même groupe d'action, que le personnage1 se déplace à un endroit 
-et le deuxième tir à l'endroit d'arriver du premier que la balle manque sa cible. Cela n'arrive pas à tout le temps est très aléatoire donc très difficile à corriger.
+et le deuxième tir à l'endroit d'arrivée du premier et que la balle manque sa cible. Cela n'arrive pas tout le temps, c'est un phenomene très aléatoire donc très difficile à corriger.
 
 (Les problèmes suivant concernent les personnages et le butin )
 
 Le deuxième problème concerne les échanges de balle lorsque la personne touchée par la balle est au bon endroit. 
-Il est possible lorsque le personnage qui vient d'être touché et qui vient de lâcher son butin ne bouge pas si on lui retire dessus de lui faire perdre un putin qui n'existe pas.
+Il est possible lorsque le personnage qui vient d'être touché et qui vient de lâcher son butin ne bouge pas et si on lui retire dessus, on peut lui faire perdre un butin qui n'existe pas.
 Enfin le dernier problème  est que l'on peut  effectuer le braquage d'objets qui ne sont plus dans le train/un wagon quelconque et donc voler aléatoirement  certains objets
 (qui existent ou pas).
 
 Si certaines fonctionnalités n'ont pas été implémenter c'est bien souvent à cause de ces bugs qui comme ils étaientt pas résolus lorsque 
 l'on essaie d'implémenter de nouvelles fonctionnalités rendait ses fonctionnalités buggées. 
 
-4:----------------------
+4- CODES ECRITS A PLUSIEURS
 Aucun code n'a été emprunté ailleurs à part les dossiers observer et observable. 
-Nous nous sommes beaucoup aidé de StackOverflow pour résoudre nos problèmes et bien sûr des questions que nous avons posées à notre professeur.
+Nous nous sommes beaucoup aidé de StackOverflow, et d'autres sites d'ecahnge de problemes de code pour résoudre nos problèmes et bien sûr des questions que nous avons posées à notre professeur.
