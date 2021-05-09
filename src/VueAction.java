@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class VueAction extends JPanel{
@@ -11,65 +12,113 @@ public class VueAction extends JPanel{
         this.train=train;
         this.setLayout(new GridBagLayout());
 
+
+       // this.setBorder(new LineBorder(Color.cyan,10 ));
+        //this.setBackground(Color.PINK);
+
         gc = new GridBagConstraints();
-        gc.weightx = 4;
-        //gc.weighty = 3;
+        gc.weightx = 0.6;
+        gc.weighty = 0;
 
 
-        gc.fill = GridBagConstraints.HORIZONTAL;
-        gc.insets = new Insets(0, 1, 0, 1);
-        gc.ipady = gc.anchor = GridBagConstraints.CENTER;
+
+        gc.fill = GridBagConstraints.BOTH;
+        gc.insets = new Insets(1, 1, 1, 1);
+        //gc.ipady =
+        gc.anchor = GridBagConstraints.NORTH;
+
+        gc.ipady = 0;
+        gc.ipadx = 10;
 
 
 
         JButton bas = new JButton("Depl v");
-        gc.gridx = 1;
+        gc.gridx = 2;
         gc.gridy = 2;
-        gc.gridwidth = 2;
+        gc.weightx = 0.6;
+
+
+        //gc.gridwidth = 3;
 
         this.add(bas,gc);
 
         JButton haut = new JButton("Depl ^");
-        gc.gridx = 1;
+        gc.gridx = 2;
         gc.gridy = 0;
-        gc.gridwidth = 2;
+        gc.weightx = 0.6;
+        //gc.gridwidth = 2;
         this.add(haut,gc);
 
         JButton avant = new JButton("Depl >");
-        gc.gridx = 2;
+        gc.gridx = 3;
         gc.gridy = 1;
+        gc.weightx = 0.1;
 
         this.add(avant,gc);
 
         JButton arriere = new JButton("< Depl");
-        gc.gridx = 0;
+        gc.gridx = 1;
         gc.gridy = 1;
+        gc.weightx = 0.1;
+
         this.add(arriere,gc);
 
         JButton ButAction = new JButton("ACTION");
-        gc.gridx = 3;
-        gc.gridy = 1;
+        gc.gridx = 7;
+        gc.gridy = 2;
+        gc.weightx = 0.1;
 
         this.add(ButAction,gc);
         Action a = new Action(train);
 
 
+
         JButton braquage = new JButton("Braquage");
-        gc.gridx = 3;
+        gc.gridx = 0;
         gc.gridy = 2;
+        gc.weightx = 0.1;
         this.add(braquage,gc);
 
-        JButton tir = new JButton("TIR");
-        gc.gridx = 3;
+
+        JButton tirArriere = new JButton("< Tir");
+        gc.gridx = 4;
+        gc.gridy = 1;
+        gc.weightx = 0.1;
+        this.add(tirArriere,gc);
+
+        JButton tirAvant = new JButton("Tir >");
+        gc.gridx = 6;
+        gc.gridy = 1;
+        gc.weightx = 0.1;
+        this.add(tirAvant,gc);
+
+        JButton tirBas = new JButton("Tir v");
+        gc.gridx = 5;
+        gc.gridy = 2;
+        gc.weightx = 0.6;
+        this.add(tirBas,gc);
+
+        JButton tirHaut = new JButton("Tir ^");
+        gc.gridx = 5;
         gc.gridy = 0;
-        this.add(tir,gc);
+        gc.weightx = 0.6;
+        this.add(tirHaut, gc);
+
+
+
+
 
         bas.addActionListener(e -> train.listeAction.add("bas"));
         haut.addActionListener(e -> train.listeAction.add("haut"));
         avant.addActionListener(e -> train.listeAction.add("avant"));
         arriere.addActionListener(e -> train.listeAction.add("arriere"));
         braquage.addActionListener(e -> train.listeAction.add("braquage"));
-        tir.addActionListener(e -> train.listeAction.add("tir"));
+        tirHaut.addActionListener(e -> train.listeAction.add("tirHaut"));
+        tirBas.addActionListener(e -> train.listeAction.add("tirBas"));
+        tirArriere.addActionListener(e -> train.listeAction.add("tirArriere"));
+        tirAvant.addActionListener(e -> train.listeAction.add("tirAvant"));
+
+
 
         ButAction.addActionListener(a);
         /*for(Personnages p : train.personnages){
