@@ -7,6 +7,8 @@ Il n’y a eu aucune difficulté particulière dans cette partie, une fois le su
 
 PARTIE 1.4\
 La partie 1.4 a été faite entièrement elle aussi. Elle utilise les fichiers observer et observable vu en cours et récupérés  du fichier Conway.
+Il a été difficile d'obtenir un affichage correcte des boutons et du train sachant qu'on passe par une classe fenetre et deux classes VueTrain et VueAction,
+contrairement à ce que nous avons pu trouver sur StackOverflow ou autres sites internet que nous avons consulté.
 
 La partie 2. 0 à elle aussi été entièrement faite. 
 
