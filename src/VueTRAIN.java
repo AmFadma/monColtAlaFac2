@@ -92,14 +92,13 @@ public class VueTRAIN extends JPanel implements Observer{
             g.drawString("Bourses : " + train.personnages.get(i).butin.bourses, 35+i*10*taille/train.personnages.size(), 265);
 
         }
+        System.out.println(train.getWagon(1,3).Nb_Butin + " "+train.getWagon(1,3).butin.bijoux + " "+train.getWagon(1,3).butin.bourses + " "+train.getWagon(1,3).butin.magots);
         for (int j = 0; j<this.train.taille; j++){
-            ArrayList<String>b = new ArrayList<>();
-            b.add("bourses");
-            b.add("bijoux");
-            b.add("magots");
+
                 int bourses = train.getWagon(1,j).butin.bourses;
-                System.out.println(j);
-                System.out.println(bourses);
+                //System.out.println(j);
+                //System.out.println(bourses);
+
                 int bijoux = train.getWagon(1,j).butin.bijoux;
                 int magots =train.getWagon(1,j).butin.magots;
                 int butin = bourses+bijoux+magots;
@@ -122,6 +121,12 @@ public class VueTRAIN extends JPanel implements Observer{
 
 
         }
+        /*ArrayList<String>b = new ArrayList<>();
+            b.add("bourses");
+            b.add("bijoux");
+            b.add("magots");
+
+         */
 
         /*g.drawString(train.personnages.get(1).nom,335,320);
         g.drawString("Magots : "+ train.personnages.get(1).butin.magots,335,335);

@@ -38,7 +38,7 @@ public class Train extends Observable{
 
 
         for (String names : s){
-            personnages.add(new Personnages(names,3,0));
+            personnages.add(new Personnages(names,0,0));
         }
         /*System.out.println(train.get(1).get(3).Nb_Butin + " "+ train.get(1).get(3).butin.bijoux + " "+ train.get(1).get(3).butin.bourses);
         pour test la créations des butins dans les wagons
