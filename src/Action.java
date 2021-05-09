@@ -71,8 +71,6 @@ public class Action implements ActionListener  {
             }
         }
     }
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         //for (String s : train.listeAction){System.out.println(s);} pour tester
@@ -94,6 +92,9 @@ public class Action implements ActionListener  {
             else if (train.listeAction.get(j) == "arriere"){
                 arriere(train.personnages.get(n)); // ou arriere(j/3)
             }
+            else if (train.listeAction.get(j) == "braquage"){
+                braquage(train.personnages.get(n)); // ou arriere(j/3)
+            }
         }
         counter-=1;
        //reset du tabeau d'actions
@@ -114,14 +115,92 @@ public class Action implements ActionListener  {
             if (winner == -1){
                 System.out.println("wow égalité");
             }else{
-                System.out.println("le gagnant est "+ train.personnages.get(winner));
+                System.out.println("le gagnant est "+ train.personnages.get(winner).nom);
             }
             System.exit(0);
         }
-
-
     }
+    public void braquage(Personnages perso){
+        if(train.getWagon(perso.pos_toît,perso.pos_wag).Nb_Butin !=0 && perso.pos_toît == 1){
+            int bij=train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux;
+            int brs =train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses;
+            int mag =train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots;
 
+
+            if(bij !=0 && brs !=0 && mag!=0){ //cas1 1 de chaque mini
+                int type = new Random().nextInt((3-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses -=1;
+                    perso.butin.bourses +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole une bourse");
+
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux -=1;
+                    perso.butin.bijoux +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un bijoux");
+                }else if(type == 3){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots -=1;
+                    perso.butin.magots +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un magot");
+                }
+            }
+            else if(bij ==0 && brs !=0 && mag==0){ //cas 2 que bourses
+                train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses -=1;
+                perso.butin.bourses +=1;
+                System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole une bourse");
+            }
+            else if(bij !=0 && brs ==0 && mag==0){//cas 3 que bij
+                train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux -=1;
+                perso.butin.bijoux +=1;
+                System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un bijoux");
+            }
+            else if(bij ==0 && brs ==0 && mag!=0){ //cas 4 que mag
+                train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots -=1;
+                perso.butin.magots +=1;
+                System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un magot");
+            }
+            else if(brs ==0){ // cas 5  sans bourses
+                int type = new Random().nextInt((2-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux -=1;
+                    perso.butin.bijoux +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un bijoux");
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots -=1;
+                    perso.butin.magots +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un magot");
+                }
+            }
+            else if(bij ==0){// cas 6  sans bij
+                int type = new Random().nextInt((2-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses -=1;
+                    perso.butin.bourses +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole une bourse");
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots -=1;
+                    perso.butin.magots +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un magot");
+                }
+            }
+            else if(mag == 0){// cas 7  sans mag
+                int type = new Random().nextInt((2-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux -=1;
+                    perso.butin.bijoux +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole un bijoux");
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses -=1;
+                    perso.butin.bourses +=1;
+                    System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et vole une bourse");
+                }
+            }
+
+            //System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon);
+        }else{
+            System.out.println("le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+ " est vide");
+        }
+    }
     /* premier test
     public void action(){
         String a;

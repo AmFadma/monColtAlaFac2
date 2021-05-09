@@ -52,6 +52,20 @@ public class VueAction extends JPanel{
 
         this.add(ButAction,gc);
         Action a = new Action(train);
+
+
+        JButton braquage = new JButton("Braquage");
+        gc.gridx = 3;
+        gc.gridy = 2;
+        this.add(braquage,gc);
+
+        bas.addActionListener(e -> train.listeAction.add("bas"));
+        haut.addActionListener(e -> train.listeAction.add("haut"));
+        avant.addActionListener(e -> train.listeAction.add("avant"));
+        arriere.addActionListener(e -> train.listeAction.add("arriere"));
+        braquage.addActionListener(e -> train.listeAction.add("braquage"));
+
+        ButAction.addActionListener(a);
         /*for(Personnages p : train.personnages){
 
             for(int j=0; j < 3; j++){
@@ -69,12 +83,5 @@ public class VueAction extends JPanel{
             ButAction.addActionListener(a);
         }*/
         //sinon ca
-
-        bas.addActionListener(e -> train.listeAction.add("bas"));
-        haut.addActionListener(e -> train.listeAction.add("haut"));
-        avant.addActionListener(e -> train.listeAction.add("avant"));
-        arriere.addActionListener(e -> train.listeAction.add("arriere"));
-        ButAction.addActionListener(a);
-
     }
 }
