@@ -15,18 +15,22 @@ public class Train extends Observable{
         for (int i = 0; i < 2; i++) {
             train.add(new ArrayList<>());
             for (int j = 0; j < this.taille ; j++){
-                if(j == this.taille-1){
-                    train.get(i).add(new Wagon(i,j,0,0,1,1));
+                if(i== 0){
+                    train.get(i).add(new Wagon(i,j,0,0,1,0));
                 }else{
-                    //int nbItem = new Random().nextInt((4 - 1) + 1) + 1;
-                    train.get(i).add(new Wagon(i,j,0,0,0,new Random().nextInt((4-1) +1) +1) );
-                    if(i>0 && j< this.taille-1){
-                        for(int x = 0; x < train.get(i).get(j).Nb_Butin; x++){
-                            int type = new Random().nextInt((2-1)+1)+1;
-                            if(type == 1){
-                                train.get(i).get(j).butin.bourses +=1;
-                            }else if(type == 2){
-                                train.get(i).get(j).butin.bijoux +=1;
+                    if(j == this.taille-1){
+                        train.get(i).add(new Wagon(i,j,0,0,1,1));
+                    }else{
+                        //int nbItem = new Random().nextInt((4 - 1) + 1) + 1;
+                        train.get(i).add(new Wagon(i,j,0,0,0,new Random().nextInt((4-1) +1) +1) );
+                        if(i==1 && j< this.taille-1){
+                            for(int x = 0; x < train.get(i).get(j).Nb_Butin; x++){
+                                int type = new Random().nextInt((2-1)+1)+1;
+                                if(type == 1){
+                                    train.get(i).get(j).butin.bourses +=1;
+                                }else if(type == 2){
+                                    train.get(i).get(j).butin.bijoux +=1;
+                                }
                             }
                         }
                     }
