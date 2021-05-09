@@ -7,6 +7,7 @@ public class Personnages {
     Scanner userInput = new Scanner(System.in);
     public Butin butin;
     public int Nb_Balles = 6;
+    public int Nb_Butin =0;
 
     public Personnages(String nom, int pos_wag, int pos_toît ) {
         this.nom = nom;
@@ -17,5 +18,11 @@ public class Personnages {
 
     public int getThune(){
         return butin.bijoux* butin.getMoneyBijoux() + butin.bourses* butin.getMoneyBourses() + butin.magots* butin.getMoneyMagot();
+    }
+    public int getNb_Butin(){
+        this.Nb_Butin += butin.bourses;
+        this.Nb_Butin += butin.bijoux;
+        this.Nb_Butin += butin.magots;
+        return this.Nb_Butin;
     }
 }

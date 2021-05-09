@@ -59,11 +59,17 @@ public class VueAction extends JPanel{
         gc.gridy = 2;
         this.add(braquage,gc);
 
+        JButton tir = new JButton("TIR");
+        gc.gridx = 3;
+        gc.gridy = 0;
+        this.add(tir,gc);
+
         bas.addActionListener(e -> train.listeAction.add("bas"));
         haut.addActionListener(e -> train.listeAction.add("haut"));
         avant.addActionListener(e -> train.listeAction.add("avant"));
         arriere.addActionListener(e -> train.listeAction.add("arriere"));
         braquage.addActionListener(e -> train.listeAction.add("braquage"));
+        tir.addActionListener(e -> train.listeAction.add("tir"));
 
         ButAction.addActionListener(a);
         /*for(Personnages p : train.personnages){

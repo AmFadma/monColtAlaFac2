@@ -54,6 +54,62 @@ public class Action implements ActionListener  {
             System.out.println(perso.nom+" recule.");
         }
     }
+    public ArrayList<Personnages> nbPersDir(Personnages perso, Direction dir){
+        ArrayList<Personnages> nbPers=new ArrayList<>();
+        int marqueurHauteur= perso.pos_toît;
+        int marqueurLongueur= perso.pos_wag;
+
+        if(dir == Direction.BAS){marqueurHauteur +=1;}
+        else if(dir == Direction.HAUT){marqueurHauteur -=1;}
+        else if(dir == Direction.AVANT){marqueurLongueur+=1;}
+        else if(dir == Direction.ARRIERE){marqueurLongueur-=1;}
+
+        for (Personnages p : train.personnages){
+            if(p.pos_toît==marqueurHauteur && p.pos_wag == marqueurLongueur){
+                nbPers.add(p);
+            }
+        }
+        return nbPers;
+        /*for (Personnages p : train.personnages){
+            if(p.pos_toît==marqueurHauteur && p.pos_wag == marqueurLongueur){
+                nbPers+=1;
+            }
+        }
+        return nbPers;*/
+    }
+    public void tir(Personnages perso, Direction dir){
+
+        ArrayList<Personnages> quiEstLa = nbPersDir(perso,dir);
+        //-----------cas qui font rien---
+
+        if( quiEstLa.size() == 0){
+            perso.Nb_Balles-=1;
+            System.out.println(perso.nom+" tire mais rien ne se passe.");
+        }else{
+            int ShotOnWho = new Random().nextInt((quiEstLa.size()-1-0)+1);
+            for (Personnages p : train.personnages){
+                if(p.pos_toît==quiEstLa.get(ShotOnWho).pos_toît && p.pos_wag == quiEstLa.get(ShotOnWho).pos_wag){
+                    DropPers(p);
+                }
+            }
+        }
+        /*if( quiEstLa == 0){
+            perso.Nb_Balles-=1;
+            System.out.println(perso.nom+" tire mais rien ne se passe.");
+        }else{
+            if(dir == Direction.BAS){marqueurHauteur +=1;}
+            else if(dir == Direction.HAUT){marqueurHauteur -=1;}
+            else if(dir == Direction.AVANT){marqueurLongueur+=1;}
+            else if(dir == Direction.ARRIERE){marqueurLongueur-=1;}
+            ArrayList<Personnages> ShotOnWho = new ArrayList<>();
+            for (Personnages p : train.personnages){
+                if(p.pos_toît==marqueurHauteur && p.pos_wag == marqueurLongueur){
+                    ShotOnWho.add(p);
+                }
+            }
+
+        }*/
+    }
 
     public void déplacementM(Marshall m){
         int direction = new Random().nextInt((2-1)+1)+1;
@@ -94,6 +150,9 @@ public class Action implements ActionListener  {
             }
             else if (train.listeAction.get(j) == "braquage"){
                 braquage(train.personnages.get(n)); // ou arriere(j/3)
+            }
+            else if (train.listeAction.get(j) == "tir"){
+                tir(train.personnages.get(n),Direction.HAUT);
             }
         }
         counter-=1;
@@ -201,6 +260,92 @@ public class Action implements ActionListener  {
             System.out.println("le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+ " est vide");
         }
     }
+
+    public void DropPers(Personnages perso){
+        if(perso.getNb_Butin() !=0 ){
+            int bij=perso.butin.bijoux;
+            int brs =perso.butin.bourses;
+            int mag =perso.butin.magots;
+
+
+            if(bij !=0 && brs !=0 && mag!=0){ //cas1 1 de chaque mini
+                int type = new Random().nextInt((3-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(1,perso.pos_wag).butin.bourses +=1;
+                    perso.butin.bourses -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds une bourse");
+
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux +=1;
+                    perso.butin.bijoux -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un bijou");
+                }else if(type == 3){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots +=1;
+                    perso.butin.magots -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un magot");
+                }
+            }
+            else if(bij ==0 && brs !=0 && mag==0){ //cas 2 que bourses
+                train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses +=1;
+                perso.butin.bourses -=1;
+                System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds une bourse");
+            }
+            else if(bij !=0 && brs ==0 && mag==0){//cas 3 que bij
+                train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux +=1;
+                perso.butin.bijoux -=1;
+                System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un bijou");
+            }
+            else if(bij ==0 && brs ==0 && mag!=0){ //cas 4 que mag
+                train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots +=1;
+                perso.butin.magots -=1;
+                System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un magot");
+            }
+            else if(brs ==0){ // cas 5  sans bourses
+                int type = new Random().nextInt((2-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux +=1;
+                    perso.butin.bijoux -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un bijou");
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots +=1;
+                    perso.butin.magots -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un magot");
+                }
+            }
+            else if(bij ==0){// cas 6  sans bij
+                int type = new Random().nextInt((2-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses +=1;
+                    perso.butin.bourses -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds une bourse");
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.magots +=1;
+                    perso.butin.magots -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un magot");
+                }
+            }
+            else if(mag == 0){// cas 7  sans mag
+                int type = new Random().nextInt((2-1)+1)+1;
+                if(type == 1){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bijoux +=1;
+                    perso.butin.bijoux -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds un bijou");
+                }else if(type == 2){
+                    train.getWagon(perso.pos_toît,perso.pos_wag).butin.bourses +=1;
+                    perso.butin.bourses -=1;
+                    System.out.println(perso.nom+" se fait tirer dessus dans le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon+" et perds une bourse");
+                }
+            }
+
+            //System.out.println(perso.nom+" braque le wagon numéro " + train.getWagon(perso.pos_toît,perso.pos_wag).num_wagon);
+        }else{
+            System.out.println(perso.nom +  " est sans butin");
+        }
+    }
+
+
+
+    //au cas ou pour tir (dir == Direction.BAS && marqueurHauteur == 0 || dir == Direction.HAUT && marqueurHauteur == 1 || dir == Direction.AVANT && marqueurLongueur == train.taille-1 ||dir == Direction.ARRIERE && marqueurHauteur == 0)
     /* premier test
     public void action(){
         String a;
