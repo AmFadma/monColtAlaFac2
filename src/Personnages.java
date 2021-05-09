@@ -3,13 +3,14 @@ import java.util.Scanner;
 public class Personnages {
     public  String nom;
     public int pos_wag;
-    public int pos_toît=0;
+    public int pos_toît;
     Scanner userInput = new Scanner(System.in);
     public Butin butin;
 
-    public Personnages(String nom) {
+    public Personnages(String nom, int pos_wag, int pos_toît ) {
         this.nom = nom;
-        this.pos_wag= 3;
+        this.pos_wag= pos_wag;
+        this.pos_toît = pos_toît;
         this.butin = new Butin(0 ,0,0);
     }
 
