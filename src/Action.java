@@ -57,7 +57,7 @@ public class Action implements ActionListener  {
 
     public void déplacementM(Marshall m){
         int direction = new Random().nextInt((2-1)+1)+1;
-        if(direction == 1 && m.pos_wag == 0){ //1 avance et 2 recule
+        if(direction == 1 && m.pos_wag == 0){ //1 recule et 2 avance
             direction = 2;
         }else if(direction == 2 && m.pos_wag == train.taille-1){
             direction =1;
@@ -65,13 +65,11 @@ public class Action implements ActionListener  {
         boolean b = 0+(10-0)*new Random().nextDouble() <=m.Nervosité*10;
         if(b){
             if(direction == 1){
-                avant(m);
-            }else if(direction == 2){
                 arriere(m);
+            }else if(direction == 2){
+                avant(m);
             }
         }
-
-
     }
 
 
@@ -83,7 +81,7 @@ public class Action implements ActionListener  {
         les déplacements du marshall
          */
         déplacementM(train.marshall);
-        //System.out.println(train.marshall.pos_toît + " "+train.marshall.pos_wag);
+        System.out.println(train.marshall.pos_toît + " "+train.marshall.pos_wag);
         for(int j = 0, n=0 ; n < 2; n++,j+=counter){
             if(train.listeAction.get(j) == "bas"){
                 bas(train.personnages.get(n)); // ou bas(j/3)
