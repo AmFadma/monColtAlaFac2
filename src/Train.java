@@ -17,7 +17,7 @@ public class Train extends Observable{
                     train.get(i).add(new Wagon(i,j,0,0,1));
                 }else{
                     //int nbItem = new Random().nextInt((4 - 1) + 1) + 1;
-                    train.get(i).add(new Wagon(i,j,1,1,0));
+                    train.get(i).add(new Wagon(i,j,2,2,0));
                 }
             }
         }//tab de wagon cf cours
