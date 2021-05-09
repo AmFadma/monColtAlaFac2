@@ -51,7 +51,7 @@ public class VueAction extends JPanel{
         gc.gridy = 1;
 
         this.add(ButAction,gc);
-
+        Action a = new Action(train);
         /*for(Personnages p : train.personnages){
 
             for(int j=0; j < 3; j++){
@@ -59,13 +59,22 @@ public class VueAction extends JPanel{
             }
         }*/
         //if a faire pour lock les boutons si tab < train.personnages.size() * 3 ca:
+        /*if(train.listeAction.size()  < train.personnages.size() * 3){
+            bas.addActionListener(e -> train.listeAction.add("bas"));
+            haut.addActionListener(e -> train.listeAction.add("haut"));
+            avant.addActionListener(e -> train.listeAction.add("avant"));
+            arriere.addActionListener(e -> train.listeAction.add("arriere"));
+        }
+        if(train.listeAction.size() < 0) {
+            ButAction.addActionListener(a);
+        }*/
+        //sinon ca
+
         bas.addActionListener(e -> train.listeAction.add("bas"));
         haut.addActionListener(e -> train.listeAction.add("haut"));
         avant.addActionListener(e -> train.listeAction.add("avant"));
         arriere.addActionListener(e -> train.listeAction.add("arriere"));
-
-        //sinon ca
-        Action a = new Action(train);
         ButAction.addActionListener(a);
+
     }
 }
