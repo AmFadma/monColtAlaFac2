@@ -57,17 +57,17 @@ public class Action implements ActionListener  {
 
     public void déplacementM(Marshall m){
         int direction = new Random().nextInt((2-1)+1)+1;
-        if(direction == 1 && m.pos_wag == 0){ //1 recule et 2 avance
+        if(direction == 1 && m.pos_wag == train.taille-1){ //1 avance et 2 recule
             direction = 2;
-        }else if(direction == 2 && m.pos_wag == train.taille-1){
+        }else if(direction == 2 && m.pos_wag == 0){
             direction =1;
         }
         boolean b = 0+(10-0)*new Random().nextDouble() <=m.Nervosité*10;
         if(b){
             if(direction == 1){
-                arriere(m);
-            }else if(direction == 2){
                 avant(m);
+            }else if(direction == 2){
+                arriere(m);
             }
         }
     }
