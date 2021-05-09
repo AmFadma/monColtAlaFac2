@@ -122,37 +122,12 @@ public class VueTRAIN extends JPanel implements Observer{
 
                 }
 
-
-
-
-
-        }
-        /*ArrayList<String>b = new ArrayList<>();
-            b.add("bourses");
-            b.add("bijoux");
-            b.add("magots");
-
-         */
-
-        /*g.drawString(train.personnages.get(1).nom,335,320);
-        g.drawString("Magots : "+ train.personnages.get(1).butin.magots,335,335);
-        g.drawString("Bijoux : "+ train.personnages.get(1).butin.bijoux,335,350);
-        g.drawString("Bourses : "+ train.personnages.get(1).butin.bourses,335,365);
-
-        g.drawString(train.personnages.get(i).nom, 35+i*100, 310+i*10);
-            g.drawString("Magots : " + train.personnages.get(i).butin.magots, 35+i*100, 330+i*10);
-            g.drawString("Bijoux : " + train.personnages.get(i).butin.bijoux, 35+i*100, 340+i*10);
-            g.drawString("Bourses : " + train.personnages.get(i).butin.bourses, 35+i*100, 350+i*10);
         }
 
-         */
+        g.drawString("Marshall",100/train.taille+train.marshall.pos_wag*(8*taille)/train.taille, 40+(2*train.marshall.pos_toît*((taille/4 )+ (taille/2)))/(train.personnages.size()));
 
-        /*g.drawString(train.personnages.get(2).nom,635,320);
-        g.drawString("Magots : "+ train.personnages.get(2).butin.magots,635,335);
-        g.drawString("Bijoux : "+ train.personnages.get(2).butin.bijoux,635,350);
-        g.drawString("Bourses : "+ train.personnages.get(2).butin.bourses,635,365);
 
-         */
+
 
 
     }
